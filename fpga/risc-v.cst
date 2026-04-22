@@ -1,0 +1,30 @@
+// ==========================================
+// Tang Primer 25k Physical Constraints Map
+// ==========================================
+
+// 1. The 50MHz Clock (Tied to the onboard crystal oscillator)
+IO_LOC "clk" E2;
+IO_PORT "clk" IO_TYPE=LVCMOS33;
+
+// 2. The Reset Button (Using an onboard button, usually KEY0 or similar)
+IO_LOC "rst_n" H11; 
+IO_PORT "rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP; // Pull up so it doesn't randomly reset
+
+// 3. The Breadboard LEDs
+IO_LOC "leds[5]" K11; // The 6th LED (Bit 5)
+IO_PORT "leds[5]" IO_TYPE=LVCMOS33;
+
+IO_LOC "leds[4]" L11; // The 5th LED (Bit 4)
+IO_PORT "leds[4]" IO_TYPE=LVCMOS33;
+
+IO_LOC "leds[3]" A11; // The 4th LED (Bit 3)
+IO_PORT "leds[3]" IO_TYPE=LVCMOS33;
+
+IO_LOC "leds[2]" A10; // The 3rd LED (Bit 2)
+IO_PORT "leds[2]" IO_TYPE=LVCMOS33;
+
+IO_LOC "leds[1]" E11; // The 2nd LED (Bit 1)
+IO_PORT "leds[1]" IO_TYPE=LVCMOS33;
+
+IO_LOC "leds[0]" E10; // The 1st LED (Bit 0)
+IO_PORT "leds[0]" IO_TYPE=LVCMOS33;

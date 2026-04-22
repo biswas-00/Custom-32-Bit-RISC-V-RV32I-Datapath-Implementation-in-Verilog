@@ -1,0 +1,8 @@
+# Simulation files
+*.vvp
+*.vcd
+*.out
+
+# Gowin EDA generated folders
+impl/
+gw_sh*
