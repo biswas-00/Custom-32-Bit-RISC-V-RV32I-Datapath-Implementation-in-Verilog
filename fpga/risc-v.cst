@@ -6,8 +6,8 @@
 IO_LOC "clk" E2;
 IO_PORT "clk" IO_TYPE=LVCMOS33;
 
-// 2. The Reset Button (Using an onboard button, usually KEY0 or similar)
-IO_LOC "rst_n" H11; 
+// 2. The Reset Button
+IO_LOC "rst_n" S1; 
 IO_PORT "rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP; // Pull up so it doesn't randomly reset
 
 // 3. The Breadboard LEDs
