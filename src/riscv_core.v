@@ -1,12 +1,9 @@
 module riscv_core (
     input  wire       clk,
     input  wire       rst_n,
-    output wire [5:0] leds   // NEW: Physical output for your board's LEDs
+    output wire [5:0] leds   // Physical output for LEDs
 );
-
-    // =========================================================================
     // INTERNAL WIRES (The Assembly Line Belts)
-    // =========================================================================
     
     // 1. Fetch -> Decode
     wire [31:0] pc_F;
@@ -41,12 +38,10 @@ module riscv_core (
 
     // 5. Writeback -> Decode (THE FEEDBACK LOOP)
     wire [31:0] Result_W; 
-    // Notice how rd_M and Result_W will be routed back into the Decode stage below!
+    // rd_M and Result_W will be routed back into the Decode stage
 
-    // =========================================================================
     // HARDWARE INSTANTIATION (Plugging the machines in)
-    // =========================================================================
-
+    
     // Stage 1: Fetch
     fetch_stage fetch_inst (
         .clk(clk),
@@ -119,11 +114,11 @@ module riscv_core (
         .ResultSrc(ResultSrc_D), // Passed from Decode
         .ALUResult(ALUResult_M), 
         .ReadData(ReadData_M),
-        .Result(Result_W)        // Loops back up to Decode Stage!
+        .Result(Result_W)        // Loops back up to Decode Stage
     );
-    // =========================================================
+    
     // THE LED LATCH (6-Bit Hardware Camera)
-    // =========================================================
+    
     reg [5:0] led_latch;
     
     always @(posedge clk or negedge rst_n) begin
